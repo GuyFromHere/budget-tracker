@@ -22,24 +22,6 @@ self.addEventListener("install", function(e) {
   self.skipWaiting();
 });
 
-// activate
-/* self.addEventListener("activate", function(e) {
-  e.waitUntil(
-    caches.keys().then(keyList => {
-      return Promise.all(
-        keyList.map(key => {
-          if (key !== PRECACHE && key !== DATA_CACHE_NAME) {
-            console.log("Removing old cache data", key);
-            return caches.delete(key);
-          }
-        })
-      );
-    })
-  );
-
-  self.clients.claim();
-}); */
-
 // fetch
 self.addEventListener("fetch", function(e) {
   if (e.request.url.includes("/api/")) {
